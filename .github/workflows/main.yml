@@ -27,7 +27,7 @@ jobs:
           ls -R
       - name: Create Azure Resources
         run: |
-          ansible-playbook /main/ansible/virtualcentosazure.yaml
+          ansible-playbook main/ansible/virtualcentosazure.yaml
         
           
 
