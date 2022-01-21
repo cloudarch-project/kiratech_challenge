@@ -15,6 +15,11 @@ jobs:
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
           enable-AzPSSession: true
+      - name: 'Run az commands'
+        run: |
+          az account show
+          az group list
+          pwd 
       - name: Install Ansible
         run: |
           sudo apt update
