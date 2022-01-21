@@ -34,6 +34,7 @@ jobs:
           ls -R
       - name: Create Azure Resources
         run: |
+          ansible --version
           ansible localhost -m azure.azcollection.azure_rm_resourcegroup -a "name=test-kiratech location=westeurope"
            
         
