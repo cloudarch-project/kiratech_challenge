@@ -1,6 +1,6 @@
 on: [push]
 
-name: AzureLoginSample
+name: CI
 
 jobs:
   build-and-deploy:
@@ -11,13 +11,8 @@ jobs:
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
           enable-AzPSSession: true
-      - name: Azure PowerShell Action
-        uses: Azure/powershell@v1
-        with:
-          inlineScript: Get-AzVM -ResourceGroupName "kiratech-emea-automation-rsgp"
-          azPSVersion: 3.1.0
-      - run: echo "run ansible playbook"
-      - run: sudo apt update && sudo apt install ansible -y
-      - run: ansible-playbook /ansible/virtualcentosazure.yaml
-        shell: bash
-
+      - name: Install Ansible
+        run: |
+          sudo apt update && sudo apt install ansible -y
+          pwd
+ 
