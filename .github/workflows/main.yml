@@ -1,6 +1,6 @@
 on: [push]
 
-name: CI
+name: AzureLoginSample
 
 jobs:
   build-and-deploy:
@@ -15,4 +15,5 @@ jobs:
         run: |
           sudo apt update && sudo apt install ansible -y
           pwd
+          pip install ansible[azure]
  
