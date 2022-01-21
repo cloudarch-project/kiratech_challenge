@@ -6,6 +6,10 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+         with:
+           path: main
       - name: Log in with Azure
         uses: azure/login@v1
         with:
@@ -16,4 +20,6 @@ jobs:
           sudo apt update && sudo apt install ansible -y
           pwd
           pip install ansible[azure]
+          ls
+          
  
