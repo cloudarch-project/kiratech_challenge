@@ -22,12 +22,14 @@ jobs:
           sudo apt update && sudo apt install ansible -y
           pwd
           pip install ansible[azure]
-          ls
-          cd /home/runner/work/kiratech_challenge/kiratech_challenge/main
+      - name: List Working Directory
+        run: |
+          ls -R
+        working-directory: ${{env.working-directory}}
       - name: Create Azure Resources
         run: |
           ansible-playbook virtualcentosazure.yaml
-          working-directory: ${{env.working-directory}}
+        working-directory: ${{env.working-directory}}
           
 
  
