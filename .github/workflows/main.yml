@@ -22,14 +22,17 @@ jobs:
           sudo apt update && sudo apt install ansible -y
           pwd
           pip install ansible[azure]
+          ls -R
+          ls -la
       - name: List Working Directory
         run: |
           ls -R
         working-directory: ${{env.working-directory}}
       - name: Create Azure Resources
+        working-directory: ${{env.working-directory}}
         run: |
           ansible-playbook virtualcentosazure.yaml
-        working-directory: ${{env.working-directory}}
+        
           
 
  
