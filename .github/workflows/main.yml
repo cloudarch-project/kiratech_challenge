@@ -20,7 +20,6 @@ jobs:
           sudo apt update
           sudo pip install ansible
           sudo ansible-galaxy install azure.azure_preview_modules
-          sudo pip install -r ~/.ansible/roles/azure.azure_preview_modules/files/requirements-azure.txt
           sudo wget -nv -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
           sudo pip install -r requirements-azure.txt
       - name: List Working Directory
