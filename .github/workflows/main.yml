@@ -5,6 +5,8 @@ name: AzureLoginSample
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+        working-directory: ./ansible
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -21,8 +23,11 @@ jobs:
           pwd
           pip install ansible[azure]
           ls
+          cd /home/runner/work/kiratech_challenge/kiratech_challenge/main
       - name: Create Azure Resources
         run: |
-          ansible-playbook ansible/virtualcentosazure.yaml
+          ansible-playbook virtualcentosazure.yaml
+          working-directory: ${{env.working-directory}}
+          
 
  
