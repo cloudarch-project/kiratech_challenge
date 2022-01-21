@@ -1,9 +1,10 @@
-- hosts: localhost
+---
+- name: Create Azure VM
+  hosts: localhost
   connection: local
-  collections:
-   - azure.azcollection
   tasks:
-  - name: Creating resource group
-      azure_rm_resourcegroup:
-      name: "test-ansible"
-      location: "westeurope"
+
+  - name: Create resource group
+    azure_rm_resourcegroup:
+      name: test-ansible
+      location: westeurope
