@@ -17,11 +17,9 @@ jobs:
           enable-AzPSSession: true
       - name: Install Ansible
         run: |
-          sudo apt update && sudo apt install ansible -y
-          pwd
-          pip install ansible[azure]
-          ls -R
-          ls -la
+          pip install ansible
+          wget -nv -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
+          pip install -r requirements-azure.txt
       - name: List Working Directory
         run: |
           ls -R
