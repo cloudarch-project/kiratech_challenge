@@ -16,7 +16,6 @@ jobs:
         with:
           inlineScript: Get-AzVM -ResourceGroupName "kiratech-emea-automation-rsgp"
           azPSVersion: 3.1.0
-      - name: Run Ansible Playbook for Kiratech
       - run: echo "run ansible playbook"
       - run: sudo apt update && sudo apt install ansible -y
       - run: ansible-playbook /ansible/virtualcentosazure.yaml
