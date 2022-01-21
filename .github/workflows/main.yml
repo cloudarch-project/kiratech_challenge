@@ -8,8 +8,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-         with:
-           path: main
+        with:
+          path: main
       - name: Log in with Azure
         uses: azure/login@v1
         with:
@@ -21,5 +21,5 @@ jobs:
           pwd
           pip install ansible[azure]
           ls
-          
+
  
