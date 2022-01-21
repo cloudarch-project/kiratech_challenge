@@ -27,7 +27,6 @@ jobs:
       - name: List Working Directory
         run: |
           ls -R
-        working-directory: ${{env.working-directory}}
       - name: Create Azure Resources
         working-directory: ${{env.working-directory}}
         run: |
