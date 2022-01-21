@@ -34,7 +34,8 @@ jobs:
           ls -R
       - name: Create Azure Resources
         run: |
-          ansible-playbook main/ansible/virtualcentosazure.yaml
+          ansible localhost -m azure.azcollection.azure_rm_resourcegroup -a "name=test-kiratech location=westeurope"
+          ansible-playbook main/ansible/virtualcentosazure.yaml 
         
           
 
