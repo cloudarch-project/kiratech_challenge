@@ -19,6 +19,6 @@ jobs:
 
       - run: echo "run ansible playbook"
       - run: sudo apt update && sudo apt install ansible -y
-      - run: ansible-playbook /ansible/virtualcentosazure.yaml
+      - run: ansible-playbook ansible/virtualcentosazure.yaml
         shell: bash
 
