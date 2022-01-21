@@ -5,8 +5,6 @@ name: AzureLoginSample
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    env:
-        working-directory: ansible
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -28,9 +26,8 @@ jobs:
         run: |
           ls -R
       - name: Create Azure Resources
-        working-directory: ${{env.working-directory}}
         run: |
-          ansible-playbook virtualcentosazure.yaml
+          ansible-playbook /main/ansible/virtualcentosazure.yaml
         
           
 
