@@ -29,6 +29,7 @@ jobs:
           sudo ansible-galaxy install azure.azure_preview_modules
           sudo wget -nv -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
           sudo pip install -r requirements-azure.txt
+          python --version
       - name: List Working Directory
         run: |
           ls -R
