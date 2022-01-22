@@ -27,16 +27,15 @@ jobs:
           sudo apt install python3-pip
           sudo pip install "pywinrm>=0.3.0"
           sudo ansible-galaxy install azure.azure_preview_modules
-          wget -nv -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
+          sudo wget -nv -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
           sudo pip install -r requirements-azure.txt
       - name: List Working Directory
         run: |
           ls -R
       - name: Create Azure Resources
         run: |
-          ansible --version
-          /.local/bin/ansible-playbook main/ansible/virtualcentosazure.yaml
-          ansible localhost -m azure.azcollection.azure_rm_resourcegroup -a "name=test-kiratech location=westeurope"
+          sudo ansible --version
+          sudo ansible localhost -m azure.azcollection.azure_rm_resourcegroup -a "name=test-kiratech location=westeurope"
            
         
           
