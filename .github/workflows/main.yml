@@ -23,12 +23,12 @@ jobs:
       - name: Install Ansible
         run: |
           sudo apt update
-          pip install ansible
-          apt install python3-pip
-          pip install "pywinrm>=0.3.0"
-          ansible-galaxy install azure.azure_preview_modules
+          sudo pip install ansible
+          sudo apt install python3-pip
+          sudo pip install "pywinrm>=0.3.0"
+          sudo nsible-galaxy install azure.azure_preview_modules
           wget -nv -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
-          pip install -r requirements-azure.txt
+          sudo pip install -r requirements-azure.txt
       - name: List Working Directory
         run: |
           ls -R
