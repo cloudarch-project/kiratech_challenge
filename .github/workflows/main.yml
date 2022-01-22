@@ -37,6 +37,7 @@ jobs:
       - name: Create Azure Resources
         run: |
           sudo ansible --version
+          /usr/local/bin/ansible localhost -m azure.azcollection.azure_rm_resourcegroup -a "name=test-kiratech location=westeurope"
           sudo ansible localhost -m azure.azcollection.azure_rm_resourcegroup -a "name=test-kiratech location=westeurope"
            
         
