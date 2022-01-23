@@ -23,11 +23,11 @@ jobs:
       - name: Install Ansible
         run: |
           sudo apt update
-          sudo pip install ansible
+          sudo pip3 install ansible
           sudo apt install python3-pip
-          sudo pip install azure
-          sudo pip install "pywinrm>=0.3.0"
-          sudo pip install ansible[azure]
+          sudo pip3 install 'azure<5.0'
+          sudo pip3 install "pywinrm>=0.3.0"
+          sudo pip3 install ansible[azure]
           sudo ansible-galaxy collection install azure.azcollection --force
           sudo wget -nv -q https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
           sudo pip install -r requirements-azure.txt
