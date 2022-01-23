@@ -9,5 +9,5 @@
   tasks:
     - name: "Create resource group."
       azure_rm_resourcegroup:
-        name: "{{ name }}"
-        location: "{{ location }}"
+        name: "kira-pipe-git"
+        location: "westeurope"
