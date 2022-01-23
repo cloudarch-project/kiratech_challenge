@@ -25,6 +25,8 @@ jobs:
           sudo apt update
           sudo apt remove ansible
           sudo pip3 install ansible
+          python -m venv antenv
+          source antenv/bin/activate
           sudo apt install python3-pip
           sudo pip3 install msrest
           sudo pip3 install msrestazure
@@ -36,9 +38,8 @@ jobs:
           ls -R
       - name: Create Azure Resources
         run: |
-          sudo ansible --version
-          /usr/local/bin/ansible localhost -m azure.azcollection.azure_rm_resourcegroup -a "name=test-kiratech location=westeurope"
-          sudo ansible localhost -m azure.azcollection.azure_rm_resourcegroup -a "name=test-kiratech location=westeurope"
+          ansible --version
+          ansible localhost -m azure.azcollection.azure_rm_resourcegroup -a "name=test-kt location=westeurope"
            
         
           
