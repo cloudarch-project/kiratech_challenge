@@ -23,7 +23,9 @@ jobs:
       - name: Install Ansible
         run: |
           sudo apt update
+          sudo ap remove ansible
           sudo pip3 install ansible
+          sudo pip3 install msrest
           sudo apt install python3-pip
           sudo ansible-galaxy collection install azure.azcollection --force
           python --version
