@@ -18,6 +18,7 @@ jobs:
           python3 -m venv ansible-playbook && . ansible-playbook/bin/activate && pip3 install --upgrade pip && pip3 install wheel
           pip3 install ansible==2.10.0
           ansible-galaxy collection install azure.azcollection
+          pip3 install -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements-azure.txt
       - name: Create Azure Resource Group with Ansible Playbook
         run: |
           ansible-playbook main/ansible/playbook/create_rg_azcollection.yml -vvv
