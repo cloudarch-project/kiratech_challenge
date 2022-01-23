@@ -19,8 +19,6 @@ jobs:
           python3 -m venv antenv
           source antenv/bin/activate
           ansible --version
-          pip install msrest
-          pip install msrestazure
           curl -O https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
           pip install -r requirements-azure.txt
           export AZURE_SUBSCRIPTION_ID=e7a84c33-0304-4979-b422-1ea40066fa15
