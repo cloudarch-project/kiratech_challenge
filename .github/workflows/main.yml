@@ -27,12 +27,11 @@ jobs:
           pip install ansible[azure]
           curl -O https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
           pip install -r requirements-azure.txt
-      - name: Log in with Azure
-        env: # Or as an environment variable
-          credentials: ${{ secrets.AZURE_CREDENTIALS }}
-        uses: azure/login@v1
-        with:
-          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+          export AZURE_SUBSCRIPTION=e7a84c33-0304-4979-b422-1ea40066fa15
+          export AZURE_TENANT=0634f583-e93e-4a11-9749-058651409f10
+          export AZURE_CLIENT_ID=6f9febd0-321d-4836-adee-5b39ac9d644c
+          export AZURE_SECRET=hdRN40GhMatGCue_4hbiwsgwHtueRG4dL7
+
       - name: Create Azure Resource Group with Ansible Playbook
         run: |
           ansible-playbook main/ansible/playbook/create_rg.yml --extra-vars "name=test-kira location=westeurope" -vvv
