@@ -25,7 +25,7 @@ jobs:
           export AZURE_SECRET=Tv.XitBa6tvKg.WZu~zgXUIhrEvGo9xA50
       - name: Create Azure Resource Group with Ansible Playbook
         run: |
-          ./antenv/bin/ansible-playbook main/ansible/playbook/create_rg.yml --extra-vars "name=test-kira location=westeurope" -vvv
+          ansible-playbook main/ansible/playbook/create_rg_azcollection.yml --extra-vars "name=test-kira-pipeline location=westeurope" -vvv
            
         
           
