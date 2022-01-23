@@ -6,8 +6,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-        env: # Or as an environment variable
-          credentials: ${{ secrets.AZURE_CREDENTIALS }}
+        
       - name: Checkout
         uses: actions/checkout@master
         with:
@@ -29,6 +28,8 @@ jobs:
           curl -O https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
           pip install -r requirements-azure.txt
       - name: Log in with Azure
+        env: # Or as an environment variable
+          credentials: ${{ secrets.AZURE_CREDENTIALS }}
         uses: azure/login@v1
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
