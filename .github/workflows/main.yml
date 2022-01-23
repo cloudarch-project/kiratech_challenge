@@ -30,6 +30,7 @@ jobs:
           sudo apt install ansible
           source antenv/bin/activate
           ansible --version
+          pip install azure-cli
           pip install msrest
           pip install msrestazure
           pip install ansible[azure]
@@ -40,7 +41,7 @@ jobs:
           ls -R
       - name: Create Azure Resources
         run: |
-          ansible-playbook main/ansible/playbook/create_rg.yml --extra-vars "name=test-kira location=westeurope"
+          ansible-playbook main/ansible/playbook/create_rg.yml --extra-vars "name=test-kira location=westeurope" -vvv
            
         
           
