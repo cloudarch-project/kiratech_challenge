@@ -28,10 +28,10 @@ jobs:
           python -m venv antenv
           source antenv/bin/activate
           sudo apt install python3-pip
-          sudo pip3 install msrest
-          sudo pip3 install msrestazure
-          sudo pip3 install ansible[azure]
-          sudo ansible-galaxy collection install azure.azcollection --force
+          pip3 install msrest
+          pip3 install msrestazure
+          pip3 install ansible[azure]
+          ansible-galaxy collection install azure.azcollection --force
           python --version
       - name: List Working Directory
         run: |
