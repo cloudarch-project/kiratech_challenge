@@ -6,6 +6,8 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      env: # Or as an environment variable
+        credentials: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Checkout
         uses: actions/checkout@master
         with:
