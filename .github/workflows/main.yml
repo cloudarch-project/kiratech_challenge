@@ -5,8 +5,7 @@ name: AzureLoginSample
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-        
+    steps:    
       - name: Checkout
         uses: actions/checkout@master
         with:
@@ -31,10 +30,9 @@ jobs:
           export AZURE_TENANT=0634f583-e93e-4a11-9749-058651409f10
           export AZURE_CLIENT_ID=6f9febd0-321d-4836-adee-5b39ac9d644c
           export AZURE_SECRET=hdRN40GhMatGCue_4hbiwsgwHtueRG4dL7
-
       - name: Create Azure Resource Group with Ansible Playbook
         run: |
-          ansible-playbook main/ansible/playbook/create_rg.yml --extra-vars "name=test-kira location=westeurope" -vvv
+          ./antev/bin/ansible-playbook main/ansible/playbook/create_rg.yml --extra-vars "name=test-kira location=westeurope" -vvv
            
         
           
