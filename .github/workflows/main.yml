@@ -24,10 +24,10 @@ jobs:
         run: |
           sudo apt update
           sudo apt remove ansible
-          sudo pip3 install ansible
           python -m venv antenv
           source antenv/bin/activate
           sudo apt install python3-pip
+          pip3 install ansible
           pip3 install msrest
           pip3 install msrestazure
           pip3 install ansible[azure]
