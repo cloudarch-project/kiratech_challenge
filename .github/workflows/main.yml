@@ -18,14 +18,15 @@ jobs:
           sudo apt install python3.8-venv
           python3 -m venv antenv
           source antenv/bin/activate
+          pip3 install --upgrade pip
           ansible --version
           curl -O https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
-          pip install -r requirements-azure.txt
+          pip3 install -r requirements-azure.txt
           export AZURE_SUBSCRIPTION_ID=e7a84c33-0304-4979-b422-1ea40066fa15
           export AZURE_TENANT=0634f583-e93e-4a11-9749-058651409f10
           export AZURE_CLIENT_ID=6f9febd0-321d-4836-adee-5b39ac9d644c
           export AZURE_SECRET=hdRN40GhMatGCue_4hbiwsgwHtueRG4dL7
-          pip install ansible[azure]
+          pip3 install ansible[azure]
       - name: Create Azure Resource Group with Ansible Playbook
         run: |
           ./antenv/bin/ansible-playbook main/ansible/playbook/create_rg.yml --extra-vars "name=test-kira location=westeurope" -vvv
