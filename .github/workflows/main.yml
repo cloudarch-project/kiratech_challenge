@@ -32,7 +32,7 @@ jobs:
           export AZURE_SECRET=hdRN40GhMatGCue_4hbiwsgwHtueRG4dL7
       - name: Create Azure Resource Group with Ansible Playbook
         run: |
-          ./antev/bin/ansible-playbook main/ansible/playbook/create_rg.yml --extra-vars "name=test-kira location=westeurope" -vvv
+          ./antenv/bin/ansible-playbook main/ansible/playbook/create_rg.yml --extra-vars "name=test-kira location=westeurope" -vvv
            
         
           
