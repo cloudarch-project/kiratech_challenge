@@ -23,23 +23,24 @@ jobs:
       - name: Install Ansible
         run: |
           sudo apt update
-          sudo apt remove ansible
-          python -m venv antenv
-          source antenv/bin/activate
+          sudo apt install curl
           sudo apt install python3-pip
-          pip3 install ansible
-          pip3 install msrest
-          pip3 install msrestazure
-          pip3 install ansible[azure]
+          sudo apt install python3.8-venv
+          python3 -m venv antenv
+          source antenv/bin/activate
+          pip install ansible
+          pip install msrest
+          pip install msrestazure
+          pip install ansible[azure] --upgrade --force
           ansible-galaxy collection install azure.azcollection --force
-          python --version
+          curl -O https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
+          pip install -r requirements-azure.txt
       - name: List Working Directory
         run: |
           ls -R
       - name: Create Azure Resources
         run: |
-          ansible --version
-          ansible localhost -m azure.azcollection.azure_rm_resourcegroup -a "name=test-kt location=westeurope"
+          ansible-playbook main/ansible/playbook/create_rg.yml --extra-vars "name=test-kira location=westeurope"
            
         
           
