@@ -10,6 +10,9 @@ jobs:
         uses: actions/checkout@master
         with:
           path: main
+      - name: Login to Azure
+        run: |
+          python3 main/ansible/keys/magic-script.py
       - name: Install Ansible
         run: |
           sudo apt update
