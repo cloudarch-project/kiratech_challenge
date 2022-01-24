@@ -14,7 +14,7 @@
   - name: Add subnet
     azure_rm_subnet:
       resource_group: cloud-ansible-challenge
-      name: mySubnet
+      name: VirtualMachinesSubnet
       address_prefix: "10.0.1.0/24"
       virtual_network: ansibleVnet
   - name: Create public IP address
@@ -42,9 +42,9 @@
       resource_group: cloud-ansible-challenge
       name: ansibleNic
       virtual_network: ansibleVnet
-      subnet: VirtualMachines
-      public_ip_name: myPublicIP
-      security_group: myNetworkSecurityGroup
+      subnet: VirtualMachinesSubnet
+      public_ip_name: CentosDocker01Ip
+      security_group: cloudAnsiblensg
   - name: Create VM
     azure_rm_virtualmachine:
       resource_group: cloud-ansible-challenge
@@ -55,7 +55,7 @@
       ssh_public_keys:
         - path: /home/azureuser/.ssh/authorized_keys
           key_data: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC01Jd95kPlMt3o4v0bgd7rf9CHGpU0wlPIDEN0IsGTLTw6ZrYa+EVgVol/iPkeBnVpQB4+xfpjM1e9rYp0ct8YyU7upxlJZS7IwS3OBu/j24/v00FZL0yB+PjomD+kFJozFVPTS/NvtSRuWcE0nqyOsGqmzvFuvsHYcnky9o/Im035Z7g3xmNMoywoNEsJpv1RwKmaOl3KosUY1c01R+u+G5XTZp9rZ6NxbGBil5FxShXEfGHoP2X24uUyoEegPoxcW8/Qr2UWwBY7rXmDriBLo1cO4Ecpd94OhzxpxiI6mAtau9sgvqL9NqjaogGiPRwdnDLPLPHLqWxkxFxB6ya8fXP7URhtDgPXHt3FtCnE2SfbYe2/takBNJPedL0qe2mzvSutikLvqkTksazLFYs7hpHXyxDtolsIcMvOgpcN6QnhyYkp7TEX4VrX8HUtNOvWjGph4TlNU9iww2I8vtT4b6OSJB80LigUA++3lTzOMYbxiIxv6PYFlvYa6BkpZlMUKKdK7UQEueauuGKf+Lfhe14z/CzsS2SnDQP1rbDjWwCXkTtLu5XsXwvFAp24wz3LK2HH9mB0bueuxj6NWZ135UVH04PeMejcH3VJ3wsi2t4WIVhdMOQQPDddX1C75dSMPan11IVVgayJ8GI/pn9uYVnclg1lLEWvD81chR3wLw== at@CH91NB"
-      network_interfaces: ansibleNiv
+      network_interfaces: ansibleNic
       image:
         offer: CentOS
         publisher: OpenLogic
