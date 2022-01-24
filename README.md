@@ -32,3 +32,4 @@
           cp main/ansible/keys/credentials ~/.azure
 
 # Now we have the env ready we can create Centos VM from Azure Ansible Playbook.
+# https://docs.microsoft.com/en-us/azure/developer/ansible/vm-configure?tabs=ansible
