@@ -29,9 +29,13 @@
     - pip3 install ansible==2.10.0
     - ansible-galaxy collection install azure.azcollection
     - pip3 install -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements-azure.txt
-          ./ansible-playbook/bin/ansible --version
+    - ./ansible-playbook/bin/ansible --version
 4. Copy Credentials to GitActions Pipeline's User
     - cp main/ansible/keys/credentials ~/.azure
 
 ## Now we have the env ready we can create Centos VM from Azure Ansible Playbook.
 ## https://docs.microsoft.com/en-us/azure/developer/ansible/vm-configure?tabs=ansible
+
+
+5. Install Docker Ansible 
+[Docker Ansible Reference Centos](https://docs.ansible.com/ansible/latest/collections/community/docker/docsite/scenario_guide.html#ansible-collections-community-docker-docsite-scenario-guide)
