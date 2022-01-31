@@ -41,7 +41,7 @@ jobs:
           ansible-galaxy collection install azure.azcollection
           pip3 install -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements-azure.txt
           ./ansible-playbook/bin/ansible --version
-          echo -e $(${{ secrets.ANSIBLE_CREDENTIALS }}) >> ~/.azure/credentials
+          echo -e $(${{ secrets.AZURE_CREDENTIALS }}) >> ~/.azure/credentials
       - name: Create Azure Centos Vm with Ansible Playbook
         run: |
           ./ansible-playbook/bin/ansible-playbook main/ansible/playbook/create_centos_vm_azure.yml -vvv
