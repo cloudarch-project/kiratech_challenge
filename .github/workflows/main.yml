@@ -30,6 +30,7 @@ jobs:
             az account show
             az group list
       - name: Install Ansible
+        env: ${{ secrets.AZURE_CREDENTIALS }}
         run: |
           sudo apt update
           sudo apt install python3-pip
@@ -39,7 +40,6 @@ jobs:
           ansible-galaxy collection install azure.azcollection
           pip3 install -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements-azure.txt
           ./ansible-playbook/bin/ansible --version
-          cp main/ansible/keys/credentials ~/.azure
       - name: Create Azure Centos Vm with Ansible Playbook
         run: |
           ./ansible-playbook/bin/ansible-playbook main/ansible/playbook/create_centos_vm_azure.yml -vvv
