@@ -42,7 +42,7 @@ jobs:
           pip3 install -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements-azure.txt
           ./ansible-playbook/bin/ansible --version
           export AZURE_SUBSCRIPTION_ID=$(${{ secrets.AZURE_CREDENTIALS.subscription_id}})
-          export AZURE_CLIENT_ID=$$(${{ secrets.AZURE_CREDENTIALS.client_id }})
+          export AZURE_CLIENT_ID=$(${{ secrets.AZURE_CREDENTIALS.client_id }})
           export AZURE_SECRET=$(${{ secrets.AZURE_CREDENTIALS.secret}})
           export AZURE_TENANT=$(${{ secrets.AZURE_CREDENTIALS.tenant }})
       - name: Create Azure Centos Vm with Ansible Playbook
