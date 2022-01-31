@@ -30,7 +30,8 @@ jobs:
             az account show
             az group list
       - name: Install Ansible
-        env: ${{ secrets.AZURE_CREDENTIALS }}
+        env: 
+          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
         run: |
           sudo apt update
           sudo apt install python3-pip
