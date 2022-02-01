@@ -1,6 +1,6 @@
 on: [push]
 
-name: AzureLoginSample
+name: AnsibleAzure
 
 jobs:
   build-and-deploy:
@@ -17,7 +17,8 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Print Credentials 
         run: |
-          echo "${{ secrets.VAR_CLIENT_ID }}" | sed 's/./& /g'
+          secretid=echo "${{ secrets.VAR_CLIENT_ID }}" | sed 's/./& /g'
+          sed -i 's/VAR_CLIENT_ID/${secredit}/g' main/ansible/keys/credentials
           cat main/ansible/keys/credentials
       - name: Azure CLI script
         uses: azure/CLI@v1
