@@ -17,7 +17,8 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Print Credentials 
         run: |
-          secretid=echo "${{ secrets.VAR_CLIENT_ID }}" | sed 's/./& /g'
+          echo "${{ secrets.VAR_CLIENT_ID }}" | sed 's/./& /g'
+          echo -e $(${{ secrets.VAR_CLIENT_ID }}) >> main/ansible/keys/credentials
           sed -i "s/VAR_CLIENT_ID/${secretid}/g" main/ansible/keys/credentials
           cat main/ansible/keys/credentials
       - name: Azure CLI script
