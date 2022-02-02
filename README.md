@@ -22,7 +22,7 @@
 ```
 Add the output in the GitActions Secret as AZURE_CREDENTIALS variable, we'll use later for AZ CLI task to connect to azure.
 
-## Here we find the Code for the Pipeline: 
+## Here we description for the Code in the Pipeline main.yml file: 
 2. Need to create local env with venv  
     - sudo apt install python3-pip
     - sudo apt install python3.8-venv
@@ -40,11 +40,13 @@ Add the output in the GitActions Secret as AZURE_CREDENTIALS variable, we'll use
 ## Now we have the env ready we can create Centos VM from Azure Ansible Playbook. 
 ## https://docs.microsoft.com/en-us/azure/developer/ansible/vm-configure?tabs=ansible
 
+5. Deploy the Vm with Ansible 
+    - create_centos_vm_azure.yml 
 
-5. Install Docker Ansible 
+6. Install Docker Ansible 
 [Docker Ansible Reference Centos](https://docs.ansible.com/ansible/latest/collections/community/docker/docsite/scenario_guide.html#ansible-collections-community-docker-docsite-scenario-guide)
 
-6. Play Ansible Playbook for the Challenge
+7. Play Ansible Playbook for the Challenge
 
 ## Play ansible:
 
