@@ -1,0 +1,11 @@
+---
+volume_group:
+  name: vg00
+  disk: /dev/sdc
+
+docker_partition:
+  mount_point: /var/lib/docker
+  device: /dev/vg00/docker
+  size: 40G
+  fstype: 'ext4'
+  opts: 'rw,nosuid,noexec'

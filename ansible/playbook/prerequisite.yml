@@ -1,0 +1,10 @@
+- hosts: centos
+  vars:
+    ansible_python_interpreter: /bin/python
+  tasks:
+    - name: a
+      yum:
+        name:
+          - python3
+          - python3-pip
+        state: present

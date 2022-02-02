@@ -1,0 +1,49 @@
+- hosts: centos
+
+  tasks:
+    - name: 'Configuring docker-ce repo'
+      get_url:
+        url: https://download.docker.com/linux/centos/docker-ce.repo
+        dest: /etc/yum.repos.d/docker-ce.repo
+        mode: 0644
+    - name: ' Installing Docker latest version'
+      yum:
+        name: docker-ce
+        state: present
+
+    - name: Ensure that docker group exists
+      group:
+        name: docker
+        state: present
+
+    - name: Ensure docker data dir exists
+      file:
+        path: /var/lib/docker
+        state: directory
+        group: docker
+    - name: Ensure docker  drop-in directory exists for systemd
+      file:
+        path: /etc/systemd/system/docker.service.d
+        state: directory
+    - name: Ensure docker custom conf exists for systemd
+      copy:
+        src: custom_docker.conf
+        dest: /etc/systemd/system/docker.service.d/costum_docker.conf
+      notify: restart docker
+    - name: starting docker services
+      service:
+        name: docker
+        state: started
+    - name: install python-docker dependency
+      pip:
+        name: docker==4.4.4
+    - name: Init docker swarm
+      docker_swarm:
+        state: presen
+  handlers:
+    - name: restart docker
+      systemd:
+        name: docker
+        state: restarted
+        enabled: yes
+        daemon_reload: yes

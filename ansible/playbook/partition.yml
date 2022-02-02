@@ -1,0 +1,39 @@
+---
+- hosts: centos
+  vars_files:
+    - vars/global.yml
+
+  tasks:
+    - name: Create a volume group on top of /dev/sdc
+      lvg:
+        vg: '{{ volume_group.name }}'
+        pvs: '{{ volume_group.disk }}'
+        pvresize: yes
+    # Docker partition part
+    - name: Ensure the the mount point exists
+      file:
+        path: '{{ docker_partition.mount_point }}'
+        state: directory
+    - name: Ensure the the docker partition exists
+      lvol:
+        vg: '{{ volume_group.name }}'
+        lv: 'docker'
+        size: '{{ docker_partition.size }}'
+    - name: Ensure partition is formated
+      filesystem:
+        fstype: '{{ docker_partition.fstype }}'
+        dev: '{{ docker_partition.device }}'
+    - name: Ensure that {{ docker_partition.mount_point }} is configured
+      mount:
+        name: '{{ docker_partition.mount_point }}'
+        src: '{{ docker_partition.device }}'
+        fstype: '{{ docker_partition.fstype }}'
+        opts: '{{ docker_partition.opts }}'
+        state: mounted
+        dump: '1'
+        passno: '2'
+    - name: Ensure that docker partition is well sized
+      filesystem:
+        dev: '{{ docker_partition.device }}'
+        fstype: '{{ docker_partition.fstype }}'
+        resizefs: yes
