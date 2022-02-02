@@ -20,9 +20,9 @@
         "managementEndpointUrl": "https://management.core.windows.net/"
         }
 ```
-Add the output in the GitActions Secret as AZURE_CREDENTIAL variable, we'll use later for AZ CLI task to connect to azure.
+Add the output in the GitActions Secret as AZURE_CREDENTIALS variable, we'll use later for AZ CLI task to connect to azure.
 
-# Here we find the Code for the Pipeline: 
+## Here we find the Code for the Pipeline: 
 2. Need to create local env with venv  
     - sudo apt install python3-pip
     - sudo apt install python3.8-venv
