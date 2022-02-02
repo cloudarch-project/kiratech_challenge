@@ -39,3 +39,22 @@
 
 5. Install Docker Ansible 
 [Docker Ansible Reference Centos](https://docs.ansible.com/ansible/latest/collections/community/docker/docsite/scenario_guide.html#ansible-collections-community-docker-docsite-scenario-guide)
+
+6. Play Ansible Playbook for the Challenge
+
+# Play ansible:
+
+```
+ansible-playbook prerequisite.yml -i hosts -b
+ansible-playbook partition.yml -i hosts -b
+ansible-playbook docker.yml -i hosts -b
+```
+
+In the Azure machine we can export the env variable 
+export DOCKER_HOST=tcp://10.0.1.4:2375
+
+Or add the env variable permently, create a file under the /etc/profile.d/ folder and add the variable on it
+
+```
+sudo vim /etc/profile.d/env.sh
+```
