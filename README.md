@@ -6,18 +6,20 @@
     - az ad sp create-for-rbac --name GitActionsPipeline --role Contributor --sdk-auth
 
         The output is in json format, copy and paste into credential file, will be use later with the pipeline. Output is like this  : 
-                  ```{
-                            "clientId": "************************************",
-                            "clientSecret": "*********************************",
-                            "subscriptionId": "*********************************",
-                            "tenantId": "*********************************",
-                            "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-                            "resourceManagerEndpointUrl": "https://management.azure.com/",
-                            "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-                            "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-                            "galleryEndpointUrl": "https://gallery.azure.com/",
-                            "managementEndpointUrl": "https://management.core.windows.net/"
-                    }```
+```
+{
+"clientId": "************************************",
+"clientSecret": "*********************************",
+"subscriptionId": "*********************************",
+"tenantId": "*********************************",
+"activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+"resourceManagerEndpointUrl": "https://management.azure.com/",
+"activeDirectoryGraphResourceId": "https://graph.windows.net/",
+"sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+"galleryEndpointUrl": "https://gallery.azure.com/",
+"managementEndpointUrl": "https://management.core.windows.net/"
+}
+```
 
 2. Need to create local env with venv  
     - sudo apt install python3-pip
