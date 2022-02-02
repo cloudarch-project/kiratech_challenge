@@ -35,8 +35,8 @@
 4. Copy Credentials to GitActions Pipeline's User
     - cp main/ansible/keys/credentials ~/.azure
 
-# Now we have the env ready we can create Centos VM from Azure Ansible Playbook.
-# https://docs.microsoft.com/en-us/azure/developer/ansible/vm-configure?tabs=ansible
+## Now we have the env ready we can create Centos VM from Azure Ansible Playbook. 
+## https://docs.microsoft.com/en-us/azure/developer/ansible/vm-configure?tabs=ansible
 
 
 5. Install Docker Ansible 
