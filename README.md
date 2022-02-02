@@ -1,6 +1,6 @@
 [![Python](https://img.shields.io/pypi/pyversions/azure-cli.svg?maxAge=2592000)](https://pypi.python.org/pypi/azure-cli) ![CI](https://github.com/nickjj/ansible-docker/workflows/CI/badge.svg?branch=master)
 
-## Deploy 2 Centos Based VM on Azure with GitActions pipeline
+## Deploy Centos Based VM on Azure with GitActions pipeline
 
 1. Create a service principal on Azure with the following command : 
     - az ad sp create-for-rbac --name GitActionsPipeline --role Contributor --sdk-auth
@@ -33,8 +33,8 @@
 4. Copy Credentials to GitActions Pipeline's User
     - cp main/ansible/keys/credentials ~/.azure
 
-## Now we have the env ready we can create Centos VM from Azure Ansible Playbook.
-## https://docs.microsoft.com/en-us/azure/developer/ansible/vm-configure?tabs=ansible
+# Now we have the env ready we can create Centos VM from Azure Ansible Playbook.
+# https://docs.microsoft.com/en-us/azure/developer/ansible/vm-configure?tabs=ansible
 
 
 5. Install Docker Ansible 
@@ -42,7 +42,7 @@
 
 6. Play Ansible Playbook for the Challenge
 
-# Play ansible:
+## Play ansible:
 
 ```
 ansible-playbook prerequisite.yml -i hosts -b
